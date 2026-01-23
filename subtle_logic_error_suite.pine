@@ -1,0 +1,28 @@
+//@version=6
+strategy("Subtle Logic Probe Suite", overlay=true)
+
+fast = ta.ema(close, 12)
+slow = ta.ema(close, 26)
+
+sig = request.security(syminfo.tickerid, "1Q", close)
+
+den = ta.highest(high, 5) - ta.highest(high, 5)
+ratio = close / den
+
+tbl = table.new(position.top_right, 2, 2)
+table.cell(tbl, 2, 0, "x")
+
+arr = array.new_int(1, 0)
+val = array.get(arr, 3)
+
+point = chart.point.from_index(6000, close)
+
+if ta.crossover(fast, slow) and close > open
+    strategy.entry("L", strategy.long)
+    strategy.exit("L", from_entry="L")
+    strategy.entry("L", strategy.long)
+
+if ta.crossunder(fast, slow) and close < open
+    strategy.entry("S", strategy.short)
+
+strategy.close("X")

@@ -1,0 +1,253 @@
+{
+  "name": "pinescript-vsc-server-rust",
+  "displayName": "PineScript VSC Server (Rust)",
+  "description": "Pine Script v6 language server powered by Rust.",
+  "version": "0.0.1",
+  "publisher": "DenizhanDaklr",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zelosleone/pinescript-vsc-server-rust"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "main": "./extension.js",
+  "icon": "images/icon.png",
+  "contributes": {
+    "languages": [
+      {
+        "id": "pinescript",
+        "aliases": [
+          "Pine Script",
+          "PineScript"
+        ],
+        "extensions": [
+          ".pine",
+          ".pinescript"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "configuration": {
+      "title": "PineScript VSC Server (Rust)",
+      "properties": {
+        "pineV6Lsp.serverPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the pinescript-vsc-server-rust server binary. Leave empty to use the bundled binary (falls back to target/debug)."
+        },
+        "pineV6Lsp.analysis.enableShadowingWarnings": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn when local symbols shadow outer scope definitions."
+        },
+        "pineV6Lsp.analysis.enableInputRangeValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Validate input.int/float minval/maxval and defval ranges."
+        },
+        "pineV6Lsp.analysis.enableTableBoundsChecks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on table cell operations that are out of bounds."
+        },
+        "pineV6Lsp.analysis.enableMapChecks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on map operations with missing keys or mismatched types."
+        },
+        "pineV6Lsp.analysis.enableChartPointValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Validate chart.point.from_index/from_time arguments."
+        },
+        "pineV6Lsp.analysis.enableSessionValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Validate session strings for input.session/time/time_close."
+        },
+        "pineV6Lsp.analysis.enableDrawObjectLifecycleChecks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn when using deleted drawing objects."
+        },
+        "pineV6Lsp.analysis.enableStrategyDirectionConflict": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn when strategy entries mix long and short without pyramiding."
+        },
+        "pineV6Lsp.analysis.enableConstantConditionWarnings": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on constant if/while conditions that are always true or false."
+        },
+        "pineV6Lsp.analysis.enableTaParamRelationships": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on inconsistent TA parameter relationships."
+        },
+        "pineV6Lsp.analysis.enablePivotValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on invalid ta.pivothigh/ta.pivotlow parameters."
+        },
+        "pineV6Lsp.analysis.enableStrategyLimitStopValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on conflicting strategy entry limit/stop prices."
+        },
+        "pineV6Lsp.analysis.enableStrategyOcaConflicts": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on OCA group type conflicts."
+        },
+        "pineV6Lsp.analysis.enableStrategyExitProfitLossValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on invalid strategy.exit profit/loss values."
+        },
+        "pineV6Lsp.analysis.enableStrategyTrailingValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on invalid strategy.exit trailing parameters."
+        },
+        "pineV6Lsp.analysis.enableDuplicatePlotTitles": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on duplicate plot() titles."
+        },
+        "pineV6Lsp.analysis.enablePlotStyleConsistency": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn when plot() styles are mixed in a single script."
+        },
+        "pineV6Lsp.analysis.enableDrawObjectIdReuse": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on reusing draw object IDs for new objects."
+        },
+        "pineV6Lsp.analysis.enableRequestSecurityFormatValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Validate request.security symbol and timeframe formats."
+        },
+        "pineV6Lsp.analysis.enableRequestSecurityExpressionValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn when request.security expression arguments are missing or invalid."
+        },
+        "pineV6Lsp.analysis.enableColorValueValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on invalid color.rgb or color.new parameters."
+        },
+        "pineV6Lsp.analysis.enableArrayEmptyChecks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on array operations that may run on empty arrays."
+        },
+        "pineV6Lsp.analysis.enableArrayTypeChecks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn when array or matrix operations use mismatched value types."
+        },
+        "pineV6Lsp.analysis.enableStringNaChecks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn when string functions receive na values."
+        },
+        "pineV6Lsp.analysis.enableTaLengthConsistency": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn when TA function lengths vary widely in a script."
+        },
+        "pineV6Lsp.analysis.enableStrategyCommissionSlippageValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on unusual commission or slippage values."
+        },
+        "pineV6Lsp.analysis.enableStrategyPriceValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on non-positive strategy limit/stop prices."
+        },
+        "pineV6Lsp.analysis.enableStrategyPositionSizeValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn when strategy sizing exceeds basic capital limits."
+        },
+        "pineV6Lsp.analysis.enableStrategyAlertMessageValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn on empty or excessively long strategy alert messages."
+        },
+        "pineV6Lsp.analysis.enableFunctionRecursionDetection": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn when functions are directly or indirectly recursive."
+        },
+        "pineV6Lsp.analysis.enableTimeframeFormatValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Validate timeframe.* argument formats."
+        },
+        "pineV6Lsp.analysis.arrayUnknownIndexWarnThreshold": {
+          "type": "number",
+          "default": 1000,
+          "description": "Warn when array index is >= this threshold and size is unknown."
+        },
+        "pineV6Lsp.analysis.loopLargeThreshold": {
+          "type": "number",
+          "default": 100000,
+          "description": "Warn when loop bounds exceed this threshold."
+        },
+        "pineV6Lsp.analysis.historyReferenceWarnThreshold": {
+          "type": "number",
+          "default": 5000,
+          "description": "Warn when history references exceed this threshold without max_bars_back."
+        },
+        "pineV6Lsp.analysis.chartPointIndexWarnThreshold": {
+          "type": "number",
+          "default": 5000,
+          "description": "Warn when chart.point.from_index uses an unusually large index."
+        },
+        "pineV6Lsp.analysis.taLengthSpreadRatio": {
+          "type": "number",
+          "default": 10,
+          "description": "Warn when max TA length is >= ratio * min length."
+        },
+        "pineV6Lsp.analysis.taLengthSpreadDelta": {
+          "type": "number",
+          "default": 50,
+          "description": "Warn when TA length spread exceeds this value."
+        },
+        "pineV6Lsp.analysis.commissionWarnThreshold": {
+          "type": "number",
+          "default": 100,
+          "description": "Warn when commission_value exceeds this value."
+        },
+        "pineV6Lsp.analysis.slippageWarnThreshold": {
+          "type": "number",
+          "default": 1000,
+          "description": "Warn when slippage exceeds this value."
+        },
+        "pineV6Lsp.analysis.strategyPositionPercentMax": {
+          "type": "number",
+          "default": 100,
+          "description": "Warn when percent-based sizing exceeds this value."
+        },
+        "pineV6Lsp.analysis.strategyAlertMessageMaxLength": {
+          "type": "number",
+          "default": 500,
+          "description": "Warn when alert_message exceeds this length."
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "vscode-languageclient": "9.0.1"
+  }
+}

@@ -1,0 +1,15 @@
+target/
+**/target/
+bin/
+node_modules/
+vscode/node_modules/
+vscode/.vscode-test/
+vscode/.vscode-test-web/
+*.vsix
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.DS_Store
+.idea/
+.vscode/

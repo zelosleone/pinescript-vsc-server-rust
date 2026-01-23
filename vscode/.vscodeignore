@@ -1,0 +1,7 @@
+**/target/**
+**/.git/**
+**/*.vsix
+**/*.log
+**/.DS_Store
+**/node_modules/.bin/**
+crates/tree-sitter-pine/vendor/tree-sitter-pine/.git/**
